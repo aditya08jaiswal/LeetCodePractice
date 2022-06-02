@@ -49,13 +49,14 @@ class Solution {
             str.insert(0, sum);
         }
         
+        int len = 0;
         while (str.length() > 0) {
             
-            if (Integer.parseInt(String.valueOf(str.charAt(0))) == 1) {
+            if (Integer.parseInt(String.valueOf(str.charAt(len))) == 1) {
                 break;
             }
             
-            str.deleteCharAt(0);
+            str.deleteCharAt(len);
         }
         
         return str.toString();
