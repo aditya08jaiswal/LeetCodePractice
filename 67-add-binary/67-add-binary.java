@@ -1,7 +1,5 @@
 class Solution {
     public String addBinary(String a, String b) {
-        // int num1 = Integer.parseInt(a, 2);
-        // int num2 = Integer.parseInt(b, 2);
         
         if (a.equals("0") && b.equals("0")) {
             return "0";
@@ -51,15 +49,13 @@ class Solution {
             str.insert(0, sum);
         }
         
-        int len = 0;
-        
         while (str.length() > 0) {
             
-            if (Integer.parseInt(String.valueOf(str.charAt(len))) == 1) {
+            if (Integer.parseInt(String.valueOf(str.charAt(0))) == 1) {
                 break;
             }
             
-            str.deleteCharAt(len);
+            str.deleteCharAt(0);
         }
         
         return str.toString();
