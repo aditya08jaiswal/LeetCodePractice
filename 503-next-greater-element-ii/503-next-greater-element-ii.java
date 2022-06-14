@@ -8,15 +8,13 @@ class Solution {
 
             int max = -1;
 
-            for (int j=i; j<i+len; j++) {
+            for (int j=i+1; j<i+len; j++) {
                 if (j<len && nums[i] < nums[j]) {
                     max = nums[j];
                     break;
                 } else if (j>=len && nums[i] < nums[j%len]) {
                     max = nums[j%len];
                     break;
-                } else if (i==j && (nums[i] >= nums[j] && max != -1)) {
-                    continue;
                 } else {
                     max = -1;
                 }
