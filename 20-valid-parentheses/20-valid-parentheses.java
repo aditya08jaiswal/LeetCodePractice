@@ -4,16 +4,7 @@ class Solution {
     }
     
     private boolean isMatching(char open, char close) {
-        Map<Character, Character> map = new HashMap<Character, Character>();
-        
-        map.put('(', ')');
-        map.put('{', '}');
-        map.put('[', ']');
-        
-        if (map.get(open) == close) {
-            return true;
-        } 
-        return false;
+        return (open == '(' && close == ')') || (open == '[' && close == ']') || (open == '{' && close == '}');
     }
     public boolean isValid(String s) {
         
