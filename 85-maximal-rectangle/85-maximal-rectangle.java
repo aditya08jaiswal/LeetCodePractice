@@ -1,18 +1,5 @@
 class Solution {
     
-    public int[][] convertCharArrayToInt(char[][] matrix) {
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        
-        int[][] res = new int[rows][cols];
-        
-        for (int i=0; i<rows; i++) {
-            for (int j=0; j<cols; j++) {
-                res[i][j] = Integer.parseInt(String.valueOf(matrix[i][j]));
-            }
-        }
-        return res;
-    }
     public int maximalRectangle(char[][] matrix) {
         
         int max = Integer.MIN_VALUE;
@@ -20,26 +7,19 @@ class Solution {
         int rows = matrix.length;
         int cols = matrix[0].length;
         
-        int[][] mat = convertCharArrayToInt(matrix);
-        // System.out.println(Arrays.toString(mat));
-        
-        int[] a = new int[cols];
+        int[] histogram = new int[cols];
         
         for (int i=0; i<rows; i++) {
             for (int j=0; j<cols; j++) {
-                
-                if (i == 0) {
-                    a[j] = mat[i][j];
+                int val = Integer.parseInt(String.valueOf(matrix[i][j]));
+                if (i == 0 || val == 0) {
+                    histogram[j] = val;
                 } else {
-                    if (mat[i][j] == 0) {
-                        a[j] = mat[i][j];
-                    } else {
-                        a[j] = a[j] + mat[i][j];
-                    }
+                    histogram[j] = histogram[j] + val;
                 }
             }
             
-            int mah = largestRectangleArea(a);
+            int mah = largestRectangleArea(histogram);
             max = Math.max(max, mah);
         }
         
