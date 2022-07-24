@@ -3,21 +3,19 @@ class Solution {
         
         int maxCol = matrix[0].length;
         int maxRow = matrix.length;
-
-        for (int row=0; row<maxRow; row++) {
-            for (int col=0; col<maxCol; col++) {
-                if (matrix[row][col]==target) {
-                    return true;
-                } else if (matrix[row][col]>target) {
-                    maxCol = col;
-                    break;
-                }
+        
+        int r = 0;
+        int c = maxCol-1;
+        
+        while(r<maxRow && c >= 0) {
+            if (matrix[r][c]==target) {
+                return true;
             }
-            
-            if (matrix[row][0]>target) {
-                break;
+            if (matrix[r][c]<target) {
+                r++;
+            } else {
+                c--;
             }
-            
         }
         
         return false;
