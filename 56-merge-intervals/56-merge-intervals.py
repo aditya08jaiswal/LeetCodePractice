@@ -19,14 +19,10 @@ class Solution:
             if res_top[1] < s_top[0]:
                 res.append(s.pop())
                 continue
-            # [[1,4],[0,2]]
-            elif res_top[1] >= s_top[1] or res_top[1] >= s_top[0]:
-                res[len(res)-1][0] = min(s_top[0], res_top[0])
-                res[len(res)-1][1] = max(s_top[1], res_top[1])
-                s.pop()
-            # [[1,4],[3,6]]
-            # elif res_top[1] >= s_top[0]:
-            #     res[len(res)-1][1] = s_top[1]
-            #     s.pop()
+            # [[1,4],[0,2]] or [[1,4],[3,6]]
+            # elif res_top[1] >= s_top[1] or res_top[1] >= s_top[0]:
+            res[len(res)-1][0] = min(s_top[0], res_top[0])
+            res[len(res)-1][1] = max(s_top[1], res_top[1])
+            s.pop()
             
         return res
