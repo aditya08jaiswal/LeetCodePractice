@@ -2,8 +2,10 @@ class Solution {
     
     public int binarySearch(int[] nums, int start, int end, int target) {
         
+        // Base condition
         if (start>end) return -1;
         
+        // Stackoverflow error gets resolved
         int mid = start + (end-start) / 2;
 
         if (nums[mid] == target) {
