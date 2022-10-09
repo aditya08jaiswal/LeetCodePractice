@@ -1,12 +1,24 @@
 class Solution {
+    
+    public int binary(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
+        
+        while(low<high) {
+            int mid = low + (high-low)/2;
+            if (nums[mid] > nums[high]) {
+                low = mid+1;
+            } else {
+                high = mid;
+            }   
+        }
+        return low;
+    }
+    
     public int findMin(int[] nums) {
         int minIndex = 0;
         
-        for (int i=1; i<nums.length; i++) {
-            if (nums[minIndex] > nums[i]) {
-                minIndex = i;
-            }
-        }
+        minIndex = binary(nums);
         
         return nums[minIndex];
     }
