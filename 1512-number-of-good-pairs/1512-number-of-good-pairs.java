@@ -1,13 +1,5 @@
 class Solution {
     
-    public int sum(int n) {
-        int total = 0;
-        if (n>0) {
-            total = n*(n+1)/2;
-        }
-        return total;
-    }
-    
     public int numIdenticalPairs(int[] nums) {
         
         int total = 0;
@@ -19,11 +11,7 @@ class Solution {
             } else {
                 map.put(nums[i], 0);
             }
-        }
-        
-        Set<Integer> keys = map.keySet();
-        for (Integer key: keys) {
-            total = total + sum(map.get(key));
+            total = total + map.get(nums[i]);
         }
         
         return total;
