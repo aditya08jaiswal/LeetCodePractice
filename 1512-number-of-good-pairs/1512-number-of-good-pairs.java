@@ -17,13 +17,13 @@ class Solution {
             if (map.containsKey(nums[i])) {
                 map.put(nums[i], map.get(nums[i])+1);
             } else {
-                map.put(nums[i], 1);
+                map.put(nums[i], 0);
             }
         }
         
         Set<Integer> keys = map.keySet();
         for (Integer key: keys) {
-            total = total + sum(map.get(key)-1);
+            total = total + sum(map.get(key));
         }
         
         return total;
