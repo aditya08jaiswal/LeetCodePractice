@@ -14,12 +14,10 @@ class Solution {
         }
         
         int[] res = new int[intersection.size()];
-        Iterator it = intersection.iterator();
         
-        int i = 0;
-        while (it.hasNext()) {
-            res[i] = (int)it.next();
-            i++;
+        int j = 0;
+        for (int i: intersection) {
+            res[j++] = i;
         }
         
         return res;
