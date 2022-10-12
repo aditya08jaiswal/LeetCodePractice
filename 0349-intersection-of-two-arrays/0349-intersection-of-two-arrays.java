@@ -1,8 +1,27 @@
-class Solution:
-    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set = new HashSet<>();
+        HashSet<Integer> intersection = new HashSet<>();
         
-        res = []
-        for each in nums1:
-            if each in nums2 and each not in res:
-                res.append(each)
-        return res
+        for (int i=0; i<nums1.length; i++) {
+            set.add(nums1[i]);
+        }
+        
+        for (int i=0; i<nums2.length; i++) {
+            if (set.contains(nums2[i])) {
+                intersection.add(nums2[i]);
+            }
+        }
+        
+        int[] res = new int[intersection.size()];
+        Iterator it = intersection.iterator();
+        
+        int i = 0;
+        while (it.hasNext()) {
+            res[i] = (int)it.next();
+            i++;
+        }
+        
+        return res;
+    }
+}
