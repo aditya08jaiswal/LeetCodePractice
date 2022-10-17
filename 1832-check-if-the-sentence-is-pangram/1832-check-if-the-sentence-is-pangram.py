@@ -1,10 +1,5 @@
-class Solution(object):
-    def checkIfPangram(self, sentence):
-        """
-        :type sentence: str
-        :rtype: bool
-        """
-        
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
         if len(sentence) < 26:
             return False
         
@@ -16,5 +11,3 @@ class Solution(object):
         if len(ahplabets) == 26:
             return True
         return False
-            
-        
