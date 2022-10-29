@@ -14,23 +14,23 @@
  * }
  */
 class Solution {
+    
+    private List<Integer> result;
+    
+    private void traverse(TreeNode root) {
 
-    public void traverse(TreeNode root, List<Integer> result) {
-        
-        if (root == null) {
-            return;
-        }
+        if (root == null) return;
         
         result.add(root.val);
-        traverse(root.left, result);
-        traverse(root.right, result);
+        traverse(root.left);
+        traverse(root.right);
     }
     
     public List<Integer> preorderTraversal(TreeNode root) {
         
-        List<Integer> result = new ArrayList<>();
+        result = new ArrayList<>();
         
-        traverse(root, result);
+        traverse(root);
         
         return result;
     }
